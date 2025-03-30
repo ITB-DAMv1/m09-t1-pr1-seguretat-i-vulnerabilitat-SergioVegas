@@ -92,3 +92,9 @@ Obre el següent enllaç (sql inseckten) i realitza un mínim de 7 nivells fent 
 - ' UNION SELECT name, email, salary, employed_since FROM staff – (Obtenim totes les dades de la taula staff, fent una uqeire.)
 - 
 ## Enumera i raona diferents formes que pot evitar un atac per SQL injection en projectes fets amb Razor Pages i Entity Framework. 
+1. Ús de LINQ en comptes de consultes SQL directes : Entity Framework permet treballar amb LINQ per executar consultes de manera segura sense concatenar cadenes SQL manualment.
+2.  Paràmetres en les consultes SQL : Si per algun motiu cal executar una consulta SQL directa, cal fer-ho amb paràmetres en comptes de concatenació de cadenes.
+3.   Validació i sanejament d’entrada d'usuari: Ús de DataAnnotations per validar les dades abans de processar-les (Els [Required] i les RegEx).
+4.   Configuració de permisos a la base de dades: Assegurar que l'usuari de la base de dades només tingui accés a les dades necessàries.
+
+## Exercici 3
