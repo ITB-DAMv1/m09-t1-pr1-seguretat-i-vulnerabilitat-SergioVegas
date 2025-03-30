@@ -134,5 +134,9 @@ Normes d’ús i canvi:
 Polítiques diferents pels usuaris:
  - Artistes: Han de canviar la contrasenya més seguit que els altres usuaris (aprox 3 mesos) per protegir dades bancàries.
  - Account Managers : Han d’utilitzar autenticació de dos factors i canviar la contrasenya encara més seguit que els artistes(aprox 2 mesos).
-
-
+   
+## Avaluació de la informació: determina quin valor tenen les dades que treballa l'aplicació. Determina com tractar les dades més sensibles. Quines dades encriptaries?
+- Baixa sensibilitat: Informació pública de les obres d’art.
+- Sensibilitat normal : Dades personals (nom, cognoms, adreça, telèfon, ressenyes).
+- Alta sensibilitat: DNI, dades bancàries, contrasenyes i historial de compres. Aquestes són les dades que yo encriptaría.
+  
