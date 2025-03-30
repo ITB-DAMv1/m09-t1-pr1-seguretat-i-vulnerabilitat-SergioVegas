@@ -177,3 +177,14 @@ L'autenticació basada en tokens és un mètode en el qual un servidor genera un
  # Exercici 5
  No he pogut crear un projecte en aquest repositori, ja que al clonar-ho em donava error al fer commits. Per això he creat un nou repositori amb l'exercici 5, deixo el link.
  https://github.com/SergioVegas/m09-t1-pr1-seguretat-i-vulnerabilitat-SergioVegas_EX5.git
+ # Exercici 6
+ ## Bibliografia
+ - https://owasp.org/Top10/es/A07_2021-Identification_and_Authentication_Failures/ [A07:2021 – Fallas de Identificación y Autenticación / OWASP Top 10:2021 / 30/03/2025]
+ - https://portswigger.net/web-security/sql-injection/cheat-sheet [SQL injection cheat sheet /PortSwigger/ 30/03/2025]
+ - https://www.unirioja.es/servicios/si/seguridad/concienciacion/politica_contrasenas.pdf [Política de contraseñas y seguridad de la información / 30/03/2025]
+ - https://www.cloudflare.com/es-es/learning/access-management/token-based-authentication/ [¿Qué es la autenticación basada en token?/CLOUDFARE/ 30/03/2025]
+ - https://www.softcatala.org/traductor/ [Traductor/ softcatala/ 30/03/2025]
+ - https://www.nuget.org/packages/microsoft.identitymodel.tokens [Microsoft.IdentityModel.Tokens/ nuget / 31/03/2025]
+ - https://learn.microsoft.com/en-us/entra/msal/dotnet/acquiring-tokens/overview[Token acquisition / Microsoft / 30/03/2025]
+
+ 
