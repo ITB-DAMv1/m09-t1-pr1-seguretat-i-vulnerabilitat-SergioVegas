@@ -98,3 +98,41 @@ Obre el següent enllaç (sql inseckten) i realitza un mínim de 7 nivells fent 
 4.   Configuració de permisos a la base de dades: Assegurar que l'usuari de la base de dades només tingui accés a les dades necessàries.
 
 ## Exercici 3
+L’empresa a la qual treballes desenvoluparà una aplicació web de venda d’obres d’art. Els artistes registren les seves obres amb fotografies, títol, descripció i preu.  Els clients poden comprar les obres i poden escriure ressenyes públiques dels artistes a qui han comprat. Tant clients com artistes han d’estar registrats. L’aplicació guarda nom, cognoms, adreça completa, dni i telèfon. En el cas dels artistes guarda les dades bancaries per fer els pagaments. Hi ha un tipus d’usuari Acount Manager que s’encarrega de verificar als nous artistes. Un cop aprovats poden pública i vendre les seves obres.
+
+Ara es vol aplicar aplicant els principis  de seguretat per tal de garantir el servei i la integritat de les dades. T’han encarregat l'elaboració de part de les polítiques de seguretat. Elabora els següents apartats:
+
+## Definició del control d’accés: enumera els rols  i quin accés a dades tenen cada rol: 
+1. Client:
+   - Pot veure les obres d'art disponibles amb la seva informació pública (imatge, títol, descripció, preu, artista associat)
+   - Pot accedir i modificar les seves dades personals (nom, cognoms, adreça, telèfon, DNI, contrasenya).
+   - Pot veure les seves compres anteriors.
+   - Pot escriure ressenyes sobre els artistes als quals ha comprat una obra.
+ 2. Artista:
+    - Pot gestionar el seu perfil i dades personals (nom, cognoms, DNI, telèfon, adreça, dades bancàries, contrasenya).
+    - Pot afegir, modificar i eliminar les seves obres d'art.
+    - Pot veure les comandes dels clients que han comprat les seves obres.
+    - Pot veure les ressenyes que han deixat sobre el seu perfil i respondre-les.
+3. Account Manager:
+   - Pot accedir a la llista d’artistes pendents de verificació.
+   - Pot aprovar o rebutjar nous artistes.
+   - Pot veure les dades personals dels artistes registrats (excepte contrasenyes).
+4. Usuari No Registrat (Visitant):
+   - Pot veure les obres d’art disponibles (imatge, títol, descripció, preu, artista associat).
+   - Pot veure les ressenyes públiques dels artistes.
+## Definició de la política de contrasenyes: normes de creació, d’ús i canvi de contrasenyes. Raona si són necessàries diferents polítiques segons el perfil d’usuari:
+Normes de creació:
+ - La contrasenya ha de tenir un mínim de 12 caràcters.
+ - Ha d’incloure almenys una lletra majúscula, una minúscula, un número i un caràcter especial.
+ - No es poden reutilitzar les darreres 5 contrasenyes.
+   
+Normes d’ús i canvi:
+ - Els usuaris han de canviar la contrasenya cada 6 mesos.
+ - Després de 5 intents fallits, el compte es bloquejarà temporalment.
+ - Els usuaris han de rebre una notificació quan es detecti un inici de sessió des d’un dispositiu nou.
+   
+Polítiques diferents pels usuaris:
+ - Artistes: Han de canviar la contrasenya més seguit que els altres usuaris (aprox 3 mesos) per protegir dades bancàries.
+ - Account Managers : Han d’utilitzar autenticació de dos factors i canviar la contrasenya encara més seguit que els artistes(aprox 2 mesos).
+
+
