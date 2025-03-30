@@ -97,7 +97,7 @@ Obre el següent enllaç (sql inseckten) i realitza un mínim de 7 nivells fent 
 3.   Validació i sanejament d’entrada d'usuari: Ús de DataAnnotations per validar les dades abans de processar-les (Els [Required] i les RegEx).
 4.   Configuració de permisos a la base de dades: Assegurar que l'usuari de la base de dades només tingui accés a les dades necessàries.
 
-## Exercici 3
+# Exercici 3
 L’empresa a la qual treballes desenvoluparà una aplicació web de venda d’obres d’art. Els artistes registren les seves obres amb fotografies, títol, descripció i preu.  Els clients poden comprar les obres i poden escriure ressenyes públiques dels artistes a qui han comprat. Tant clients com artistes han d’estar registrats. L’aplicació guarda nom, cognoms, adreça completa, dni i telèfon. En el cas dels artistes guarda les dades bancaries per fer els pagaments. Hi ha un tipus d’usuari Acount Manager que s’encarrega de verificar als nous artistes. Un cop aprovats poden pública i vendre les seves obres.
 
 Ara es vol aplicar aplicant els principis  de seguretat per tal de garantir el servei i la integritat de les dades. T’han encarregat l'elaboració de part de les polítiques de seguretat. Elabora els següents apartats:
@@ -140,3 +140,37 @@ Polítiques diferents pels usuaris:
 - Sensibilitat normal : Dades personals (nom, cognoms, adreça, telèfon, ressenyes).
 - Alta sensibilitat: DNI, dades bancàries, contrasenyes i historial de compres. Aquestes són les dades que yo encriptaría.
   
+# Exercici 4
+En el control d’accessos, existeixen mètodes d’autenticació basats en tokens. Defineix l’autenticació basada en tokens. Quins tipus hi ha? Com funciona mitjançant la web? Cerca llibreries .Net que ens poden ajudar a implementar autenticació amb tokens:
+
+L'autenticació basada en tokens és un mètode en el qual un servidor genera un token després d'una autenticació exitosa d'un usuari. Aquest token és utilitzat per verificar la identitat de l'usuari en futures sol·licituds, evitant la necessitat d'enviar credencials en cada petició.
+ ## Tipus de tokens:
+1. JWT (JSON Web Token)
+   - Format compacte i segur basat en JSON.
+   - Encapçalat: l'encapçalat proporciona informació sobre el JWT: quin tipus de token és i quin mètode s'ha utilitzat per a signar-ho digitalment.
+   - Càrrega útil: qualsevol dada JSON pot anar aquí. Les càrregues útils de JWT per a l'autenticació inclouen afirmacions sobre la identitat de l'usuari en la càrrega útil. També poden incloure informació sobre els permisos de l'usuari, del servidor o del punt final de la API.
+   - Signatura digital: la signatura utilitza criptografia per a signar l'encapçalat i la càrrega útil amb una clau per a assegurar que les dades que contenen siguin legítims.
+   - Més utilitzats.
+ 2. Tokens de maquinari
+    - Tokens connectats: Dispositius físics com claus USB o targetes intel·ligents que es connecten directament a l'ordinador i transmeten automàticament la informació d'autenticació.
+    - Tokens desconnectats: Dispositius independents, com claus electròniques o dispositius que generen codis temporals (TOTP), que l'usuari ha d'introduir manualment per autenticar-se.
+ 3. Tokens d'accés i d'identificació:
+    - Tokens d'accés: Permeten accedir a recursos específics i tenen una durada limitada. Són utilitzats en protocols com OAuth 2.0 per permetre que aplicacions de tercers actuïn en nom de l’usuari.
+    - Tokens d'identificació: Contenen informació sobre la identitat de l’usuari i s’utilitzen per autenticar-lo en diferents serveis. Un exemple és el ID Token en OpenID Connect.
+ ## Funcionament en la web:
+ 1. Inici de sessió:
+    L'usuari envia les seves credencials (nom d'usuari i contrasenya) mitjançant una sol·licitud HTTP, normalment per mitjà d'un formulari d'inici de sessió a la web.
+ 2. Generació del token:
+    Un cop verificades les credencials, el servidor genera un token d'autenticació (com un JWT - JSON Web Token) que conté informació sobre l'usuari (com la seva identitat i els seus permisos). Aquest token és signat digitalment per garantir la seva integritat i autenticitat.
+ 3. Enviament del token:
+    El servidor retorna el token a l'usuari com a resposta de la sol·licitud d'inici de sessió.
+ 4.  Ús del token en sol·licituds posteriors:
+     Quan l'usuari realitza una sol·licitud a la web per accedir a recursos protegits, envia el token en l'encapçalament HTTP de la sol·licitud (generalment en l'encapçalament Authorization amb el valor Bearer <token>).
+ 5. Validació del token:
+     El servidor rep el token, el valida i comprova que no hagi caducat ni sigui falsificat. Si el token és vàlid, el servidor permet l’accés a la sol·licitud; si no, retorna un error d’autenticació (per exemple, un 401 Unauthorized).
+ 6. Expiració i renovació del token:
+    Els tokens tenen una durada limitada, després de la qual l'usuari haurà de fer ús d'un refresh token (si està configurat) per obtenir un nou token d'autenticació sense haver d'iniciar sessió novament.
+## Llibreries:
+1.  Microsoft.AspNetCore.Authentication.JwtBearer: https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer
+2.  Microsoft.IdentityModel.Tokens : https://www.nuget.org/packages/microsoft.identitymodel.tokens
+3.  MSAL.NET: https://learn.microsoft.com/en-us/entra/msal/dotnet/
