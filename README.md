@@ -174,3 +174,6 @@ L'autenticació basada en tokens és un mètode en el qual un servidor genera un
 1.  Microsoft.AspNetCore.Authentication.JwtBearer: https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer
 2.  Microsoft.IdentityModel.Tokens : https://www.nuget.org/packages/microsoft.identitymodel.tokens
 3.  MSAL.NET: https://learn.microsoft.com/en-us/entra/msal/dotnet/
+ # Exercici 5
+ No he pogut crear un projecte en aquest repositori, ja que al clonar-ho em donava error al fer commits. Per això he creat un nou repositori amb l'exercici 5, deixo el link.
+ https://github.com/SergioVegas/m09-t1-pr1-seguretat-i-vulnerabilitat-SergioVegas_EX5.git
