@@ -51,4 +51,30 @@ Ets vulnerable si no coneixes les versions de tots els components (incloent-hi l
  ### Exemple
 Components que s'executen amb els mateixos privilegis que l'aplicació, on les falles poden ser accidentals (error de codificació) o intencionals (porta del darrere).
 
+ ## A09:2021 - Falles en el Registre i Monitoreig 
+
+### Descripció:
+Aquesta vulnerabilitat tracta de la manca de registre (logging) i monitoratge adequats de les activitats d'una aplicació o sistema. Aquesta categoria va sorgir de l'enquesta de la comunitat i ha pujat lleugerament respecte al Top 10 del 2017.  Sense un registre i monitoratge adequats, les bretxes no poden ser detectades. La intenció és donar suport a la detecció, escalat i resposta davant de bretxes actives. Aquesta categoria s'amplia més enllà de CWE-117 (Neutralització incorrecta de sortida per a registres), CWE-223 (Omissió d'informació rellevant per a la seguretat) i CWE-532 (Inserció d'informació sensible en un arxiu de registre).
+La manca de registre i monitoratge pot prendre diverses formes: no registrar esdeveniments auditables (inicis de sessió, errors d'inici de sessió, transaccions d'alt valor); generar registres poc clars, inadequats o inexistents; no monitorar els registres d'aplicacions i API per detectar activitats sospitoses; emmagatzemar els registres localment; implementar llindars d'alerta i processos d'escalat incorrectament; no generar alertes durant les proves de penetració o escanejos de seguretat; no detectar ni alertar sobre atacs actius en temps real; i ser vulnerable a la fuga d'informació fent registres i esdeveniments d'alerta visibles per a usuaris o atacants.
+
+### Impacte en la Seguretat:
+Impedeix la detecció temprana d'activitats sospitoses, permetent als atacants operar sense ser detectats durant més temps. Això augmenta el risc de compromís i dificulta la resposta a incidents. També afecta la capacitat d'auditoria, la visibilitat, les alertes d'incidents i l'anàlisi forense.ç
+
+### Danys Potencials:
+
+- Dificultat en la detecció d'atacs: Els atacs poden passar desapercebuts durant setmanes, mesos o fins i tot anys, permetent als atacants accedir i manipular dades sense ser detectats.
+- Investigació d'incidents limitada: Sense registres adequats, és impossible determinar com es va produir un atac, quins sistemes es van veure afectats i quina informació es va comprometre, dificultant la resposta i recuperació.
+- Compliment normatiu deficient: La falta de registre i monitoratge pot comportar l'incompliment de regulacions i normatives de seguretat (com el GDPR), resultant en sancions legals i danys reputacionals.
+- 
+### Mesures Preventives Clau:
+- Registre Exhaustiu: Assegurar-se que tots els errors d'inici de sessió, de control d'accés i de validació d'entrades de dades del costat del servidor es poden registrar amb suficient context per identificar comptes sospitoses o malicioses, i mantenir-ho durant el temps suficient per a un anàlisi forense posterior.
+- Format de Registres: Assegurar-se que els registres es generen en un format fàcil de processar per les eines de gestió de registres.
+- Codificació: Assegurar-se que les dades de registre es codifiquen correctament per prevenir injeccions o atacs al sistema de monitoratge o registre.
+- Transaccions d'Alt Valor: Assegurar-se que les transaccions d'alt valor tenen una traça d'auditoria amb controls d'integritat per evitar la modificació o l'eliminació.
+- Alertes i Monitoratge: Els equips de DevSecOps han d'establir alertes i monitoratge efectius per detectar activitats sospitoses i respondre-les ràpidament.
+- Pla de Resposta: Establir o adoptar un pla de resposta i recuperació, com el NIST 800-61r2 o posterior.
+- Frameworks i Eines: Utilitzar frameworks de protecció d'aplicacions (com ModSecurity de OWASP) i conjunts de programes de correlació de registres de codi obert (com ELK: Elasticsearch, Logstash, Kibana).
+  
+### Exemple:
+ Una gran aerolínia  va tindre una bretxa de seguretat amb pèrdua de dades personals (passaports, targetes de crèdit) de milions de passatgers durant més de 10 anys, degut a un proveïdor de serveis d'emmagatzematge al núvol.
 
